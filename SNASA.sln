@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNASA.UI.MVC", "SNASA.UI.MVC\SNASA.UI.MVC.csproj", "{D102A686-D575-44C0-8011-9C2B11976EF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNASA.DATA.EF", "SNASA.DATA.EF\SNASA.DATA.EF.csproj", "{C1D45CC1-609A-4EB3-8652-F23EDF368219}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D102A686-D575-44C0-8011-9C2B11976EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D102A686-D575-44C0-8011-9C2B11976EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D102A686-D575-44C0-8011-9C2B11976EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D102A686-D575-44C0-8011-9C2B11976EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D45CC1-609A-4EB3-8652-F23EDF368219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D45CC1-609A-4EB3-8652-F23EDF368219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D45CC1-609A-4EB3-8652-F23EDF368219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D45CC1-609A-4EB3-8652-F23EDF368219}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2664E63B-9AEE-43DA-8DCF-F522C1A15438}
+	EndGlobalSection
+EndGlobal
