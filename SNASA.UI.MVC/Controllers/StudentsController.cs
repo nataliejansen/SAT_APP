@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +11,7 @@ using SNASA.DATA.EF.Models;
 
 namespace SNASA.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin, Staff")]
     public class StudentsController : Controller
     {
         private readonly SATContext _context;
@@ -45,6 +48,7 @@ namespace SNASA.UI.MVC.Controllers
         }
 
         // GET: Students/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["Ssid"] = new SelectList(_context.StudentStatuses, "Ssid", "Ssname");
@@ -69,6 +73,7 @@ namespace SNASA.UI.MVC.Controllers
         }
 
         // GET: Students/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Students == null)
@@ -122,6 +127,7 @@ namespace SNASA.UI.MVC.Controllers
         }
 
         // GET: Students/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Students == null)

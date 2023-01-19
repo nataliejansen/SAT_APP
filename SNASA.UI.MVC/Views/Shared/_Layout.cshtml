@@ -126,52 +126,38 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-                    <li class="menu-item active">
-                        <a asp-action="Dashboard" asp-controller="Home" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Login</div>
-                        </a>
-                    </li>
+
+                    <partial name="_LoginPartial" />
 
 
-                    
-                    <!-- Components -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Courses</span></li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <!-- Components -->
+                        <li class="menu-header small text-uppercase"><span class="menu-header-text">Courses</span></li>
 
-                    <!-- User interface -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-box"></i>
-                            <div data-i18n="User interface">Courses</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a asp-action="Create" asp-controller="Courses" class="menu-link">
-                                    <div data-i18n="Carousel">Add Courses</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Edit" asp-controller="Courses" class="menu-link">
-                                    <div data-i18n="Alerts">Edit Courses</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Delete" asp-controller="Courses" class="menu-link">
-                                    <div data-i18n="Badges">Delete Courses</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Details" asp-controller="Courses" class="menu-link">
-                                    <div data-i18n="Accordion">Course Details</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Index" asp-controller="Courses" class="menu-link">
-                                    <div data-i18n="Buttons">View All Courses</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                        <!-- User interface -->
+                        <li class="menu-item">
+                            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-box"></i>
+                                <div data-i18n="User interface">Courses</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a asp-action="Create" asp-controller="Courses" class="menu-link">
+                                        <div data-i18n="Carousel">Add Courses</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a asp-action="Index" asp-controller="Courses" class="menu-link">
+                                        <div data-i18n="Buttons">View All Courses</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                    { 
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-box"></i>
@@ -184,28 +170,12 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Edit" asp-controller="ScheduledClasses" class="menu-link">
-                                    <div data-i18n="Alerts">Edit a Scheduled Class</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Delete" asp-controller="ScheduledClasses" class="menu-link">
-                                    <div data-i18n="Badges">Delete A Scheduled Class</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Details" asp-controller="ScheduledClasses" class="menu-link">
-                                    <div data-i18n="Accordion">Scheduled Class Details</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
                                 <a asp-action="Index" asp-controller="ScheduledClasses" class="menu-link">
                                     <div data-i18n="Buttons">View All Scheduled Classes</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Enrollments</span></li>
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -219,119 +189,90 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Edit" asp-controller="Enrollments" class="menu-link">
-                                    <div data-i18n="Text Divider">Edit Enrollments</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Delete" asp-controller="Enrollments" class="menu-link">
-                                    <div data-i18n="Text Divider">Delete Enrollments</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a asp-action="Details" asp-controller="Enrollments" class="menu-link">
-                                    <div data-i18n="Text Divider">Enrollment Details</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
                                 <a asp-action="Index" asp-controller="Enrollments" class="menu-link">
                                     <div data-i18n="Text Divider">View All Enrollments</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                    {
+                        <!-- Forms & Tables -->
+                        <li class="menu-header small text-uppercase"><span class="menu-header-text">Students</span></li>
+                        <!-- Forms -->
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-detail"></i>
+                                <div data-i18n="Form Elements">Students</div>
+                            </a>
+                            <ul class="menu-sub">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                <li class="menu-item">
+                                    <a asp-action="Create" asp-controller="Students" class="menu-link">
+                                        <div data-i18n="Basic Inputs">Add a Student</div>
+                                    </a>
+                                </li>
+                                }
+                                <li class="menu-item">
+                                    <a asp-action="Index" asp-controller="Students" class="menu-link">
+                                        <div data-i18n="Input groups">View All Students</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
 
-                    <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Students</span></li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Administration</span></li>
                     <!-- Forms -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Elements">Students</div>
+                            <div data-i18n="Form Elements">Admin Controls</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a asp-action="Create" asp-controller="Students" class="menu-link">
-                                    <div data-i18n="Basic Inputs">Add a Student</div>
+                                <a asp-action="CreateRole" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Basic Inputs">Create Role</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Edit" asp-controller="Students" class="menu-link">
-                                    <div data-i18n="Input groups">Edit a Student</div>
+                                <a asp-action="EditRole" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Input groups">Edit a Role</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Delete" asp-controller="Students" class="menu-link">
-                                    <div data-i18n="Input groups">Remove a Student</div>
+                                <a asp-action="EditUser" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Input groups">Edit User</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Details" asp-controller="Students" class="menu-link">
-                                    <div data-i18n="Input groups">Student Details</div>
+                                <a asp-action="EditUserRoles" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Input groups">Edit User Roles</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a asp-action="Index" asp-controller="Students" class="menu-link">
-                                    <div data-i18n="Input groups">View All Students</div>
+                                <a asp-action="ListRoles" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Input groups">List Roles</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a asp-action="ListUsers" asp-controller="Administration" class="menu-link">
+                                    <div data-i18n="Input groups">List Users</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    }
+                </ul>
 
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Authentications</span></li>
-                    <!-- Authentication -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                            <div data-i18n="Authentications">Authentications</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Manage Users</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Register</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Forgot Password</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <!-- Accounts -->
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Account</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
-                                    <div data-i18n="Account">Account</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="pages-account-settings-notifications.html" class="menu-link">
-                                    <div data-i18n="Notifications">Notifications</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Connections</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
+
+                     @* END OF NAV ROLE RESTRICTIONS *@
                     
             </aside>
             <!-- / Menu -->
