@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SNASA.UI.MVC.Models;
 
 namespace SNASA.UI.MVC.Data
 {
@@ -9,5 +10,6 @@ namespace SNASA.UI.MVC.Data
             : base(options)
         {
         }
+        public DbSet<SNASA.UI.MVC.Models.ContactViewModel> ContactViewModel { get; set; }
     }
 }
