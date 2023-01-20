@@ -57,6 +57,8 @@ namespace SNASA.DATA.EF.Models//.MetaData
     public class ScheduledClassMetadata
     {
         public int ScheduledClassId { get; set; }
+
+        [Display(Name = "Course")]
         public int CourseId { get; set; }
 
         [Required]
@@ -79,6 +81,8 @@ namespace SNASA.DATA.EF.Models//.MetaData
         [Required]
         [StringLength(20)]
         public string Location { get; set; } = null!;
+
+        [Display(Name = "Scheduled Class Status")]
         public int Scsid { get; set; }
     }
 

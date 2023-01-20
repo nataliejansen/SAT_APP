@@ -4,12 +4,15 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+            <!-- Register -->
+            <div class="card">
+                <div class="card-body">
+                    <h1>Delete a Course</h1>
+                    
 <div>
-    <h4>Course</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CourseName)
@@ -48,10 +51,15 @@
             @Html.DisplayFor(model => model.IsActive)
         </dd>
     </dl>
-    
+                        <h4>ARE YOU SURE YOU WANT TO DELETE A COURSE?</h4>
     <form asp-action="Delete">
         <input type="hidden" asp-for="CourseId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

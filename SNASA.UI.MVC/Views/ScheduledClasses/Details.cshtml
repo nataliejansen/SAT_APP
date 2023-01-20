@@ -4,11 +4,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>ScheduledClass</h4>
-    <hr />
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+            <!-- Register -->
+            <div class="card">
+                <div class="card-body">
+                    <h1>Class Details</h1>
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.StartDate)
@@ -51,4 +53,9 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ScheduledClassId">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

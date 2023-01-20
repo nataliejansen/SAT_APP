@@ -2,35 +2,33 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+@{
+    ViewData["Title"] = "_LoginPartial";
+
+}
+
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+    <li class="menu-item py-1">
+        <a  class="menu-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
-    <li class="nav-item">
+    <li class="menu-item py-1">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            <button  type="submit" class="menu-link btn btn-link text-dark">Logout</button>
         </form>
     </li>
 }
 else
 {
-    <li class="menu-item active">
+    <li class="menu-item active py-1">
             <a class="menu-link" asp-area="Identity" asp-page="/Account/Register"><i class="menu-icon tf-icons bx bx-home-circle"></i>Register</a>
     </li>
     <li class="menu-item">
-            <a class="menu-link" asp-area="Identity" asp-page="/Account/Login"><i class="menu-icon tf-icons bx bx-home-circle"></i><div data-i18n="Analytics">Login</div></a>
+            <a class="menu-link py-1" asp-area="Identity" asp-page="/Account/Login"><i class="menu-icon tf-icons bx bx-home-circle"></i><div data-i18n="Analytics">Login</div></a>
             
     </li>
 }
 </ul>
 
 
-
-@*<li class="menu-item active">
-    <a asp-action="Dashboard" asp-controller="Home" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Login</div>
-    </a>
-</li>*@
