@@ -51,7 +51,7 @@ namespace SNASA.UI.MVC.Controllers
         // GET: ScheduledClasses/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription");
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName");
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname");
             return View();
         }
@@ -69,7 +69,7 @@ namespace SNASA.UI.MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription", scheduledClass.CourseId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", scheduledClass.CourseId);
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname", scheduledClass.Scsid);
             return View(scheduledClass);
         }
@@ -87,7 +87,7 @@ namespace SNASA.UI.MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription", scheduledClass.CourseId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", scheduledClass.CourseId);
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname", scheduledClass.Scsid);
             return View(scheduledClass);
         }
@@ -124,7 +124,7 @@ namespace SNASA.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription", scheduledClass.CourseId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", scheduledClass.CourseId);
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname", scheduledClass.Scsid);
             return View(scheduledClass);
         }
